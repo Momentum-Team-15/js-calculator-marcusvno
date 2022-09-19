@@ -5,3 +5,18 @@
     background-color: #25a3d5;
     border:2px red solid;
 } */
+
+/* * {
+    padding: 0;
+    margin: 0;
+
+} */
+
+canvas {
+    background:#eee;
+    display: block;
+    margin: 0 auto;
+    
+    width:400px;
+    height:500px;
+}
