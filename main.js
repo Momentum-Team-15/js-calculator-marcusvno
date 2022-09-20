@@ -3,8 +3,7 @@ let squares = document.querySelectorAll(".square");
 // JS, go find all the elements with the class 'square'
 // querySelector only finds the first element
 // JS gets the literal chunks of HTML
-let frame = document.querySelector("#picture-frame");
-// JS gets the picture frame element
+
 
 for (let square of squares) {
   // use a loop to apply the behavior to every square
