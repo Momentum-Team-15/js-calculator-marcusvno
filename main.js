@@ -31,10 +31,10 @@ for (let square of squares) {
         if(displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' && displayStorageArray !== "=" && operatorCheck === false){
           displayStorageArray.push(1);
           drawDisplay();
-        } else if(operatorCheck === true){
-            drawDs();
             
-        }
+        }else if(operatorCheck === true)
+          numberTwo.push(1);
+          drawDisplay();
 
         break;
 
@@ -108,15 +108,16 @@ for (let square of squares) {
 
         // OPERATORS  
       case 'squareMinus':
-        if(displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' && displayStorageArray !== "=" ){
-          operatorCheck = true;
-          operatorStore = '-';
+        if(displayStorageArray.at(-1) === 'x' && displayStorageArray.at(-1) === '-' && displayStorageArray.at(-1) === "+" && displayStorageArray.at(-1) === '/')
+          break;
+          else if(operatorCheck === false){
+            operatorStore = '-';
+            drawDisplay();
+            operatorCheck = true;
+            break;
+          } else {
 
-          drawDisplay()
-        
-        }
-
-        break;
+          }
  
       case 'squarePlus':
         if(displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' && displayStorageArray !== "=" ){
@@ -155,19 +156,21 @@ for (let square of squares) {
 
 
 function drawDisplay(){
-  if(operator === undefined){
+  if(operatorStore === undefined){
     display.innerText = displayStorageArray.join('');
     return;
   }
-  else if (numberOne.length === 0){ 
-    numberOne = parseInt(displayStorageArray.join(''));
-    displayStorageArray.push(operator);
-    display.innerText = numberOne + " ";
+  else if (numberOne.length === undefined){ 
+    displayStorageArray.push(operatorStore);
+    display.innerText = displayStorageArray.join('') + " ";
+    numberOne = praseFloat(displayStorageArray.join(''));
+    }else if (operatorCheck === true && numberOne.length > 0){
+      
+      
   }
-    else if (numberOne.length !== 0 && numberTwo.length ===0){
-
-    }
+   
 }
+
 
 /* function drawCalc(operator){
   if(operator === undefined)
