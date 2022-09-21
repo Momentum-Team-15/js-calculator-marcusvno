@@ -10,6 +10,8 @@ let display = document.querySelector("#inputDisplay");
 let displayStorageArray = [];
 let numberOne;
 let numberTwo;
+let operatorCheck = false;
+let operatorStore;
 
 console.log(displayStorageArray);
 
@@ -23,19 +25,20 @@ for (let square of squares) {
           if(displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" &&  displayStorageArray.at(-1) !== '/' && displayStorageArray !== "=" && displayStorageArray.length !== 0){
             displayStorageArray.push(0);
             drawDisplay();
-          }
+          } 
           break;
       case 'squareOne' :
-        if(displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' && displayStorageArray !== "=" ){
+        if(displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' && displayStorageArray !== "=" && operatorCheck === false){
           displayStorageArray.push(1);
           drawDisplay();
-        } else if(displayStorageArray.at(-1) === 'x' && displayStorageArray.at(-1) === '-' && displayStorageArray.at(-1) === "+" && displayStorageArray.at(-1) === '/' && displayStorageArray === "=" ) {
-          numberOne = parseInt(displayStorageArray.join(''));
-          
-
-
+        } else if(operatorCheck === true){
+            drawDs();
+            
         }
+
         break;
+
+        
 
       case 'squareTwo' :
         display.innerText = 2;
@@ -106,8 +109,13 @@ for (let square of squares) {
         // OPERATORS  
       case 'squareMinus':
         if(displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' && displayStorageArray !== "=" ){
-          drawDisplay('-')
+          operatorCheck = true;
+          operatorStore = '-';
+
+          drawDisplay()
+        
         }
+
         break;
  
       case 'squarePlus':
@@ -131,8 +139,11 @@ for (let square of squares) {
 
       case 'square--C':
         display.innerText = "";
-        displayStorageArray = [" "];
-        console.log = [displayStorageArray]
+        displayStorageArray = [];
+        numberOne = [];
+        numberTwo = [];
+        operatorCheck = false;
+        operatorStore = "";
         break;
 
     }
@@ -143,16 +154,26 @@ for (let square of squares) {
 }
 
 
-function drawDisplay(operator){
+function drawDisplay(){
+  if(operator === undefined){
+    display.innerText = displayStorageArray.join('');
+    return;
+  }
+  else if (numberOne.length === 0){ 
+    numberOne = parseInt(displayStorageArray.join(''));
+    displayStorageArray.push(operator);
+    display.innerText = numberOne + " ";
+  }
+    else if (numberOne.length !== 0 && numberTwo.length ===0){
+
+    }
+}
+
+/* function drawCalc(operator){
   if(operator === undefined)
     display.innerText = displayStorageArray.join('');
   else{
-    numberOne = parseInt(displayStorageArray.join(''));
     displayStorageArray.push(operator);
     display.innerText = displayStorageArray.join('') + " ";
   }
-}
-
-/*function drawCalc(numOp){
-  
-}*/
+} */
