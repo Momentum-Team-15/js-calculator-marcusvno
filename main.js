@@ -109,6 +109,7 @@ for (let square of squares) {
           displayStorageArray.push('-');
           display.innerText = displayStorageArray.join('');
           dotCheck = false;
+          sumCheck = false;
 
         }
         break;
@@ -118,6 +119,7 @@ for (let square of squares) {
           displayStorageArray.push('+');
           display.innerText = displayStorageArray.join('');
           dotCheck = false;
+          sumCheck = false;
 
         }
         break;
@@ -127,6 +129,7 @@ for (let square of squares) {
           displayStorageArray.push('*');
           display.innerText = displayStorageArray.join('')
           dotCheck = false;
+          sumCheck = false;
 
         }
         break;
@@ -136,6 +139,7 @@ for (let square of squares) {
           displayStorageArray.push('/');
           display.innerText = displayStorageArray.join('') + " ";
           dotCheck = false;
+          sumCheck = false;
 
         }
         break;
@@ -144,6 +148,7 @@ for (let square of squares) {
         if (displayStorageArray.at(-1) !== '*' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' && displayStorageArray.at(-1) !== "." && dotCheck!==true) {
           displayStorageArray.push('.');
           dotCheck = true;
+          sumCheck = false;
           display.innerText = displayStorageArray.join('') + " ";
         }
         break;
