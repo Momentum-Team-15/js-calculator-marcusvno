@@ -135,7 +135,7 @@ for (let square of squares) {
         break;
 
       case 'squareEqual':
-        display.innerText = math.evaluate(displayStorageArray.join(''))
+        display.innerText = eval(displayStorageArray.join(''))
         break;
     
 
