@@ -110,19 +110,16 @@ for (let square of squares) {
       case 'squareMinus':
         if(displayStorageArray.at(-1) === 'x' && displayStorageArray.at(-1) === '-' && displayStorageArray.at(-1) === "+" && displayStorageArray.at(-1) === '/')
           break;
-          else if(operatorCheck === false){
-            operatorStore = '-';
-            drawDisplay();
-            operatorCheck = true;
-            break;
-          } else {
-
+          else if(operatorCheck === true){
+            drawCalc();
           }
+          
  
       case 'squarePlus':
-        if(displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' && displayStorageArray !== "=" ){
-          display.innerText = '+';
-
+        if(displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/'){
+          operatorStore = '+';
+          drawDisplay();
+          operatorCheck = true;
         }
         break;
  
@@ -160,23 +157,15 @@ function drawDisplay(){
     display.innerText = displayStorageArray.join('');
     return;
   }
-  else if (numberOne.length === undefined){ 
+  else{
     displayStorageArray.push(operatorStore);
     display.innerText = displayStorageArray.join('') + " ";
-    numberOne = praseFloat(displayStorageArray.join(''));
-    }else if (operatorCheck === true && numberOne.length > 0){
       
       
   }
    
 }
 
-
-/* function drawCalc(operator){
-  if(operator === undefined)
-    display.innerText = displayStorageArray.join('');
-  else{
-    displayStorageArray.push(operator);
-    display.innerText = displayStorageArray.join('') + " ";
-  }
-} */
+function drawCalc(){
+  display.innerText = math.evaluate(displayStorageArray.join(''))
+}
