@@ -98,32 +98,34 @@ for (let square of squares) {
 
       // OPERATORS  
        case 'squareMinus':
+        if (displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/'){
           displayStorageArray.push('-');          
-          display.innerText = displayStorageArray.join('');
-          break; 
+          display.innerText = displayStorageArray.join('');}
+        break; 
 
        case 'squarePlus':
-        displayStorageArray.push('+');
-        display.innerText = displayStorageArray.join('');
-
+        if (displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/'){
+          displayStorageArray.push('+');
+          display.innerText = displayStorageArray.join('');}
         break;
 
       case 'squareMultiply':
-        displayStorageArray.push('*');
-        display.innerText = displayStorageArray.join('');
-  
-
-    break;
+        if (displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/'){
+          displayStorageArray.push('*');
+          display.innerText = displayStorageArray.join('');}
+        break;
  
        case 'squareDivide':
-    displayStorageArray.push('/');
-    display.innerText = displayStorageArray.join('');
+        if (displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/'){
+          displayStorageArray.push('/');
+          display.innerText = displayStorageArray.join('');}
+        break;
 
-    break;
-
-       case 'squareDot':
-    displayStorageArray.push('.');
-    break;
+      case 'squareDot':
+        if (displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' && displayStorageArray.at(-1) !== "."){
+          displayStorageArray.push('.');
+          display.innerText = displayStorageArray.join('');}
+        break;
 
           
 
