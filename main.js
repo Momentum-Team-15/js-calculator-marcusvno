@@ -7,104 +7,152 @@ let display = document.querySelector("#inputDisplay");
 // JS gets the literal chunks of HTML
 
 
-let displayStorageArray = [0];
+let displayStorageArray = [];
+let numberOne;
+let numberTwo;
+
+console.log(displayStorageArray);
 
 
 
 for (let square of squares) {
   square.addEventListener("click", (event) => {
     switch(square.id){
+      //NUMBER PAD
       case 'squareZero' :
-        if(displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' &&  )
-          displayStorageArray.push(0);
-        console.log(displayArray);
-        break;
+          if(displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" &&  displayStorageArray.at(-1) !== '/' && displayStorageArray !== "=" && displayStorageArray.length !== 0){
+            displayStorageArray.push(0);
+            drawDisplay();
+          }
+          break;
       case 'squareOne' :
-        if(displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' &&  )
-        displayStorageArray.push(0);
+        if(displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' && displayStorageArray !== "=" ){
+          displayStorageArray.push(1);
+          drawDisplay();
+        } else if(displayStorageArray.at(-1) === 'x' && displayStorageArray.at(-1) === '-' && displayStorageArray.at(-1) === "+" && displayStorageArray.at(-1) === '/' && displayStorageArray === "=" ) {
+          numberOne = parseInt(displayStorageArray.join(''));
+          
+
+
+        }
         break;
 
       case 'squareTwo' :
         display.innerText = 2;
-         if(displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' &&  )
-          displayStorageArray.push(0);
+        if(displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' && displayStorageArray !== "=" ){
+          displayStorageArray.push(2);
+          drawDisplay();
+        }
         break;
 
       case 'squareThree':
-        if(displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' &&  )
-        displayStorageArray.push(0);
-        display.innerText = 3;
+        if(displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' && displayStorageArray !== "=" ){
+          displayStorageArray.push(3);
+          drawDisplay();
+
+        }
         break;
 
       case 'squareFour':
-        if(displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' &&  ){
-          displayStorageArray.push(0);
-          display.innerText = 4;
+        if(displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' && displayStorageArray !== "=" ){
+          displayStorageArray.push(4);
+          drawDisplay();
         }
         break;
 
       case 'squareFive':
-        if(displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' &&  ){
-          displayStorageArray.push(0);
-          display.innerText = 5;
+        if(displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' && displayStorageArray !== "=" ){
+          displayStorageArray.push(5);
+          drawDisplay();
         }
         break;
 
       case 'squareSix':
-        if(displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' &&  ){
-          displayStorageArray.push(0);
-          display.innerText = 6;
+        if(displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' && displayStorageArray !== "=" ){
+          displayStorageArray.push(6);
+          drawDisplay();
         }
         break;
       
       case 'squareSeven':
-        if(displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' &&  ) {
-          displayStorageArray.push(0);
+        if(displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' && displayStorageArray !== "=" ){
+          displayStorageArray.push(7);
+          drawDisplay();
         }
-            
-        }
-        display.innerText = 7;
         break;
  
       case 'squareEight':
-        if(displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' &&  )
-          displayStorageArray.push(0);
-        display.innerText = 8;
+        if(displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' && displayStorageArray !== "=" ){
+          displayStorageArray.push(8);
+          display.innerText = 8;
+          drawDisplay();
+
+        }
         break;
  
       case 'squareNine':
-        if(displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' &&  )
-          displayStorageArray.push(0);
-        display.innerText = 9;
+        if(displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' && displayStorageArray !== "=" ){
+          displayStorageArray.push(9);
+          drawDisplay();
+
+        }
         break;
- 
+
+
+
+
+
+
+        // OPERATORS  
       case 'squareMinus':
-        
-        display.innerText = '-';
+        if(displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' && displayStorageArray !== "=" ){
+          drawDisplay('-')
+        }
         break;
  
       case 'squarePlus':
-        display.innerText = '+';
+        if(displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' && displayStorageArray !== "=" ){
+          display.innerText = '+';
+
+        }
         break;
  
       case 'squareMultiply':
-        display.innerText = '0';
+        if(displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' && displayStorageArray !== "=" ){
+          display.innerText = '0';
+        }
         break;
  
       case 'squareDivide':
-        display.innerText = '/';
+        if(displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' && displayStorageArray !== "=" ){
+          display.innerText = '/';
+        }
         break;
 
       case 'square--C':
         display.innerText = "";
-        displayStorageArray = [0];
+        displayStorageArray = [" "];
         console.log = [displayStorageArray]
         break;
 
     }
     
-    if (square.id === "squareOne") {
-      console.log(`The ${square.innerText} was clicked`);
-    }
+
+    
   });
 }
+
+
+function drawDisplay(operator){
+  if(operator === undefined)
+    display.innerText = displayStorageArray.join('');
+  else{
+    numberOne = parseInt(displayStorageArray.join(''));
+    displayStorageArray.push(operator);
+    display.innerText = displayStorageArray.join('') + " ";
+  }
+}
+
+/*function drawCalc(numOp){
+  
+}*/
