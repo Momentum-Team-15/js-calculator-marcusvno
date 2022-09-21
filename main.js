@@ -8,8 +8,6 @@ let display = document.querySelector("#inputDisplay");
 
 
 let displayStorageArray = [];
-let numberOne;
-let numberTwo;
 let operatorCheck = false;
 let operatorStore;
 
@@ -19,84 +17,76 @@ console.log(displayStorageArray);
 
 for (let square of squares) {
   square.addEventListener("click", (event) => {
-    switch(square.id){
+    switch (square.id) {
       //NUMBER PAD
-      case 'squareZero' :
-          if(displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" &&  displayStorageArray.at(-1) !== '/' && displayStorageArray !== "=" && displayStorageArray.length !== 0){
-            displayStorageArray.push(0);
-            drawDisplay();
-          } 
-          break;
-      case 'squareOne' :
-        if(displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' && displayStorageArray !== "=" && operatorCheck === false){
-          displayStorageArray.push(1);
-          drawDisplay();
-            
-        }else if(operatorCheck === true)
-          numberTwo.push(1);
-          drawDisplay();
-
+      case 'squareZero':
+        if (displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' && displayStorageArray !== "=" && displayStorageArray.length !== 0) {
+          displayStorageArray.push(0);
+        }
+        break;
+      case 'squareOne':
+        displayStorageArray.push(1);
+        display.innerText = displayStorageArray.join('') + " ";
         break;
 
-        
 
-      case 'squareTwo' :
+
+      case 'squareTwo':
         display.innerText = 2;
-        if(displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' && displayStorageArray !== "=" ){
+        if (displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' && displayStorageArray !== "=") {
           displayStorageArray.push(2);
-          drawDisplay();
+          display.innerText = displayStorageArray.join('') + " ";
         }
         break;
 
       case 'squareThree':
-        if(displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' && displayStorageArray !== "=" ){
+        if (displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' && displayStorageArray !== "=") {
           displayStorageArray.push(3);
-          drawDisplay();
+          display.innerText = displayStorageArray.join('') + " ";
 
         }
         break;
 
       case 'squareFour':
-        if(displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' && displayStorageArray !== "=" ){
+        if (displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' && displayStorageArray !== "=") {
           displayStorageArray.push(4);
-          drawDisplay();
+          display.innerText = displayStorageArray.join('') + " ";
         }
         break;
 
       case 'squareFive':
-        if(displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' && displayStorageArray !== "=" ){
+        if (displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' && displayStorageArray !== "=") {
           displayStorageArray.push(5);
-          drawDisplay();
+          display.innerText = displayStorageArray.join('') + " ";
         }
         break;
 
       case 'squareSix':
-        if(displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' && displayStorageArray !== "=" ){
+        if (displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' && displayStorageArray !== "=") {
           displayStorageArray.push(6);
-          drawDisplay();
+          display.innerText = displayStorageArray.join('') + " ";
         }
         break;
-      
+
       case 'squareSeven':
-        if(displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' && displayStorageArray !== "=" ){
+        if (displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' && displayStorageArray !== "=") {
           displayStorageArray.push(7);
-          drawDisplay();
+          display.innerText = displayStorageArray.join('') + " ";
         }
         break;
- 
+
       case 'squareEight':
-        if(displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' && displayStorageArray !== "=" ){
+        if (displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' && displayStorageArray !== "=") {
           displayStorageArray.push(8);
-          display.innerText = 8;
-          drawDisplay();
+          display.innerText = displayStorageArray.join('') + " ";
 
         }
         break;
- 
+
       case 'squareNine':
-        if(displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' && displayStorageArray !== "=" ){
+        if (displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' && displayStorageArray !== "=") {
           displayStorageArray.push(9);
-          drawDisplay();
+          display.innerText = displayStorageArray.join('') + " ";
 
         }
         break;
@@ -106,45 +96,50 @@ for (let square of squares) {
 
 
 
-        // OPERATORS  
-      case 'squareMinus':
-        if(displayStorageArray.at(-1) === 'x' && displayStorageArray.at(-1) === '-' && displayStorageArray.at(-1) === "+" && displayStorageArray.at(-1) === '/')
-          break;
-          else if(operatorCheck === true){
-            drawCalc();
-          }
-          
- 
-      case 'squarePlus':
-        if(displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/'){
-          operatorStore = '+';
-          drawDisplay();
-          operatorCheck = true;
-        }
+      // OPERATORS  
+       case 'squareMinus':
+          displayStorageArray.push('-');          
+          display.innerText = displayStorageArray.join('');
+          break; 
+
+       case 'squarePlus':
+        displayStorageArray.push('+');
+        display.innerText = displayStorageArray.join('');
+
         break;
- 
+
       case 'squareMultiply':
-        if(displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' && displayStorageArray !== "=" ){
-          display.innerText = '0';
-        }
-        break;
+        displayStorageArray.push('*');
+        display.innerText = displayStorageArray.join('');
+  
+
+    break;
  
-      case 'squareDivide':
-        if(displayStorageArray.at(-1) !== 'x' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' && displayStorageArray !== "=" ){
-          display.innerText = '/';
-        }
-        break;
+       case 'squareDivide':
+    displayStorageArray.push('/');
+    display.innerText = displayStorageArray.join('');
+
+    break;
+
+       case 'squareDot':
+    displayStorageArray.push('.');
+    break;
+
+          
 
       case 'square--C':
         display.innerText = "";
         displayStorageArray = [];
-        numberOne = [];
-        numberTwo = [];
         operatorCheck = false;
         operatorStore = "";
         break;
 
-    }
+      case 'squareEqual':
+        display.innerText = math.evaluate(displayStorageArray.join(''))
+        break;
+    
+
+  }
     
 
     
@@ -152,20 +147,3 @@ for (let square of squares) {
 }
 
 
-function drawDisplay(){
-  if(operatorStore === undefined){
-    display.innerText = displayStorageArray.join('');
-    return;
-  }
-  else{
-    displayStorageArray.push(operatorStore);
-    display.innerText = displayStorageArray.join('') + " ";
-      
-      
-  }
-   
-}
-
-function drawCalc(){
-  display.innerText = math.evaluate(displayStorageArray.join(''))
-}
