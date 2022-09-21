@@ -8,8 +8,8 @@ let display = document.querySelector("#inputDisplay");
 
 
 let displayStorageArray = [];
-let operatorCheck = false;
-let operatorStore;
+let dotCheck = false;
+let sumCheck = false;
 
 console.log(displayStorageArray);
 
@@ -19,7 +19,11 @@ for (let square of squares) {
   square.addEventListener("click", (event) => {
     switch (square.id) {
       //NUMBER PAD
+
+      
       case 'squareZero':
+        if(sumCheck===true)
+          resetDisplay();
         displayStorageArray.push("0");
         display.innerText = displayStorageArray.join('');
 
@@ -27,6 +31,8 @@ for (let square of squares) {
 
 
       case 'squareOne':
+        if(sumCheck===true)
+          resetDisplay();
         displayStorageArray.push(1);
         display.innerText = displayStorageArray.join('');
         break;
@@ -34,11 +40,15 @@ for (let square of squares) {
 
 
       case 'squareTwo':
+        if(sumCheck===true)
+          resetDisplay();
         displayStorageArray.push(2);
         display.innerText = displayStorageArray.join('');
         break;
 
       case 'squareThree':
+        if(sumCheck===true)
+          resetDisplay();
         displayStorageArray.push(3);
         display.innerText = displayStorageArray.join('');
 
@@ -46,32 +56,44 @@ for (let square of squares) {
         break;
 
       case 'squareFour':
+        if(sumCheck===true)
+          resetDisplay();
         displayStorageArray.push(4);
         display.innerText = displayStorageArray.join('');
 
         break;
 
       case 'squareFive':
+        if(sumCheck===true)
+          resetDisplay();
         displayStorageArray.push(5);
         display.innerText = displayStorageArray.join('');
         break;
 
       case 'squareSix':
+        if(sumCheck===true)
+          resetDisplay();
         displayStorageArray.push(6);
         display.innerText = displayStorageArray.join('');
         break;
 
       case 'squareSeven':
+        if(sumCheck===true)
+          resetDisplay();
         displayStorageArray.push(7);
         display.innerText = displayStorageArray.join('');
         break;
 
       case 'squareEight':
+        if(sumCheck===true)
+          resetDisplay();
         displayStorageArray.push(8);
         display.innerText = displayStorageArray.join('');
         break;
 
       case 'squareNine':
+        if(sumCheck===true)
+          resetDisplay();
         displayStorageArray.push(9);
         display.innerText = displayStorageArray.join('');
         break;
@@ -86,6 +108,8 @@ for (let square of squares) {
         if (displayStorageArray.at(-1) !== '*' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/') {
           displayStorageArray.push('-');
           display.innerText = displayStorageArray.join('');
+          dotCheck = false;
+
         }
         break;
 
@@ -93,6 +117,8 @@ for (let square of squares) {
         if (displayStorageArray.at(-1) !== '*' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/') {
           displayStorageArray.push('+');
           display.innerText = displayStorageArray.join('');
+          dotCheck = false;
+
         }
         break;
 
@@ -100,6 +126,8 @@ for (let square of squares) {
         if (displayStorageArray.at(-1) !== '*' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/') {
           displayStorageArray.push('*');
           display.innerText = displayStorageArray.join('')
+          dotCheck = false;
+
         }
         break;
 
@@ -107,12 +135,15 @@ for (let square of squares) {
         if (displayStorageArray.at(-1) !== '*' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/') {
           displayStorageArray.push('/');
           display.innerText = displayStorageArray.join('') + " ";
+          dotCheck = false;
+
         }
         break;
 
       case 'squareDot':
-        if (displayStorageArray.at(-1) !== '*' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' && displayStorageArray.at(-1) !== ".") {
+        if (displayStorageArray.at(-1) !== '*' && displayStorageArray.at(-1) !== '-' && displayStorageArray.at(-1) !== "+" && displayStorageArray.at(-1) !== '/' && displayStorageArray.at(-1) !== "." && dotCheck!==true) {
           displayStorageArray.push('.');
+          dotCheck = true;
           display.innerText = displayStorageArray.join('') + " ";
         }
         break;
@@ -122,8 +153,8 @@ for (let square of squares) {
       case 'square--C':
         display.innerText = "";
         displayStorageArray = [];
-        operatorCheck = false;
-        operatorStore = "";
+        dotCheck = false;
+        sumCheck = false;
         break;
 
       case 'squareEqual':
@@ -131,6 +162,8 @@ for (let square of squares) {
         display.innerText = calcTotal;
         displayStorageArray.length = 0;
         displayStorageArray.push(calcTotal);
+        dotCheck = false;
+        sumCheck = true;
         break;
 
 
@@ -142,3 +175,8 @@ for (let square of squares) {
 }
 
 
+function resetDisplay(){
+  displayStorageArray.length = 0;
+  display.innerText = ""
+  sumCheck = false;
+}
